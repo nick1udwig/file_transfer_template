@@ -1,0 +1,21 @@
+{
+    "name": "file_transfer_template Test",
+    "description": "A test for file_transfer_template.",
+    "image": "",
+    "properties": {
+        "package_name": "file_transfer_template_test",
+        "current_version": "0.1.0",
+        "publisher": "diligence.os",
+        "mirrors": [],
+        "code_hashes": {
+            "0.1.0": ""
+        },
+        "wit_version": 0,
+        "dependencies": [
+            "file_transfer_template:diligence.os",
+            "tester:sys"
+        ]
+    },
+    "external_url": "",
+    "animation_url": ""
+}

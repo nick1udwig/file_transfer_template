@@ -1,0 +1,20 @@
+{
+    "name": "file_transfer_template",
+    "description": "",
+    "image": "",
+    "properties": {
+        "package_name": "file_transfer_template",
+        "current_version": "0.1.0",
+        "publisher": "diligence.os",
+        "mirrors": [],
+        "code_hashes": {
+            "0.1.0": "a2ebbec44a97670955a901d29b7199e5d6242f1e26d243a46e7ab6380ef35d03"
+        },
+        "wit_version": 0,
+        "dependencies": [
+            "file_transfer_template:diligence.os"
+        ]
+    },
+    "external_url": "",
+    "animation_url": ""
+}

@@ -1,0 +1,79 @@
+interface file-transfer-template {
+    variant request {
+        list-files,
+    }
+
+    variant response {
+        list-files(list<file-info>),
+    }
+
+    record file-info {
+        name: string,
+        size: u64,
+    }
+}
+
+interface file-transfer-template-worker {
+    use standard.{address};
+
+    /// external-facing requests
+    variant request {
+        /// download starts a download.
+        /// * used by requestor to start whole process
+        /// * used by provider to spin up worker to serve request
+        download(download-request),
+        /// progress is from worker to parent
+        /// * acks not required, but provided for completeness
+        progress(progress-request),
+    }
+
+    variant response {
+        download(result<_, string>),
+        /// ack: not required, but provided for completeness
+        progress,
+    }
+
+    /// requests used between workers to transfer the file
+    /// parent will not receive these, so need not handle them
+    variant internal-request {
+        chunk(chunk-request),
+        size(u64),
+    }
+
+    record download-request {
+        name: string,
+        target: address,
+        is-requestor: bool,
+    }
+
+    record progress-request {
+        name: string,
+        progress: u64,
+    }
+
+    record chunk-request {
+        name: string,
+        offset: u64,
+        length: u64,
+    }
+
+    /// easiest way to use file-transfer-template-worker
+    /// handle file-transfer-template-worker::request by calling this helper function
+    start-download: func(
+        our: address,
+        source: address,
+        name: string,
+        target: address,
+        is-requestor: bool,
+    ) -> result<_, string>;
+}
+
+world file-transfer-template-worker-api-v0 {
+    export file-transfer-template-worker;
+}
+
+world file-transfer-template-diligence-dot-os-v0 {
+    import file-transfer-template;
+    import file-transfer-template-worker;
+    include process-v0;
+}

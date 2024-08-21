@@ -1,0 +1,15 @@
+[
+    {
+        "process_name": "file_transfer_template_test",
+        "process_wasm_path": "/file_transfer_template_test.wasm",
+        "on_exit": "Restart",
+        "request_networking": false,
+        "request_capabilities": [
+            "file_transfer_template:file_transfer_template:diligence.os"
+        ],
+        "grant_capabilities": [
+            "file_transfer_template:file_transfer_template:diligence.os"
+        ],
+        "public": true
+    }
+]

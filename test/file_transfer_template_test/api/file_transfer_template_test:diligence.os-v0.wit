@@ -1,0 +1,5 @@
+world file-transfer-template-test-diligence-dot-os-v0 {
+    import file-transfer-template;
+    import tester;
+    include process-v0;
+}
