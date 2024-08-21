@@ -1,14 +1,14 @@
 {
-    "name": "file_transfer_template",
+    "name": "file-transfer-template",
     "description": "",
     "image": "",
     "properties": {
-        "package_name": "file_transfer_template",
+        "package_name": "file-transfer-template",
         "current_version": "0.1.0",
         "publisher": "diligence.os",
         "mirrors": [],
         "code_hashes": {
-            "0.1.0": "a2ebbec44a97670955a901d29b7199e5d6242f1e26d243a46e7ab6380ef35d03"
+            "0.1.0": "8e41e358d7aedc15f95192d29c291adbf2a36dfe2f015ad78aec31aef1b36ad9"
         },
         "wit_version": 0,
         "dependencies": [
